@@ -26,13 +26,10 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-<<<<<<< HEAD
       'assets': resolve('assets'),
       'static': resolve('static'),
-=======
       'assets':  resolve('assets'),
-      'static': resolve('static')
->>>>>>> de6506c831a9ca261b8a26427099abb214399467
+      'static': resolve('static'),
       'components': path.resolve(__dirname, '../src/components'),
       jquery: "jquery"
     }
