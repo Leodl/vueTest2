@@ -38,12 +38,11 @@ created(){
 methods:{
       getlist(){
         var that = this;
-        var token ="eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MDg1NzY5NjIsInVzZXJJZCI6MTAwNSwidXNlclR5cGUiOjEsInVzZXJOYW1lIjoi572X5a-G5qynIn0.QcZzpG1xhaqRk3dHADS5acKSXZnG2VPntSipvc2mlgs"
         axios({
             method:'POST',
-            url:'http://106.15.137.203/meritpay/template/get',
+            url:'/zhitong/meritpay/template/get',
             data:{templateId:that.tmpId},
-            headers:{"User-Token":token},
+            headers:{"User-Token":Constants.getsession().token},
             contentType: 'application/json',
             dataType: "json",
         }).then(function(res){
@@ -69,7 +68,8 @@ methods:{
       var Status = that.status==1?0:1;
         axios({
           method:'PUT',
-          url: 'http://106.15.137.203/meritpay/template/updateStatus/' + that.tmpId + '/'+Status+'',
+          headers:{"User-Token":Constants.getsession().token},
+          url: '/zhitong/meritpay/template/updateStatus/' + that.tmpId + '/'+Status+'',
           contentType: 'application/json',
         }).then(function(res){
           console.log(res.data)

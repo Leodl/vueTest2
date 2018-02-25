@@ -1,9 +1,8 @@
-$(function(){
-	function myfun(){
-      console.log("成功")
-	}
-	$(".loginout button").click(function(){
-		console.log(222)
-	})
-    
-})
+var obj = {
+	click:function(){
+		alert(1)
+	},
+	info:"哈哈哈哈"
+}
+
+export default obj;

@@ -62,6 +62,7 @@ import axios from 'axios';
 import { DatetimePicker } from 'mint-ui';
 import { Button, Cell } from 'mint-ui'
 import { Toast} from 'mint-ui';
+// import "@/assets/css/test.css"
 
 
 
@@ -148,7 +149,7 @@ handleConfirm(){
 },
 upfile(){
        var that = this;
-      var token="eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MTc5ODI1NzQsInVzZXJJZCI6MTAwMzIwLCJ1c2VyVHlwZSI6MSwidXNlck5hbWUiOiLlpZXpo54ifQ.jSP8QmFqKikyK2NdUrJSPgD2HGQe0rjOTeKurQmd5D0"
+      // var token="eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MTc5ODI1NzQsInVzZXJJZCI6MTAwMzIwLCJ1c2VyVHlwZSI6MSwidXNlck5hbWUiOiLlpZXpo54ifQ.jSP8QmFqKikyK2NdUrJSPgD2HGQe0rjOTeKurQmd5D0"
       var qiniudata = {
         bucketname: "forchild-user-dev"
       //bucketname: "forchild-user"
@@ -159,10 +160,10 @@ var token2 = null;
 var domain = "http://os4skw475.bkt.clouddn.com";
 $.ajax({
      type:"post",
-     url:"http://106.15.137.203/meritpay/qiniu/getauth",
+     url:"/zhitong/meritpay/qiniu/getauth",
      data:data,
      beforeSend: function(request) {
-         request.setRequestHeader("User-Token", token);
+         request.setRequestHeader("User-Token", Constants.getsession().token);
   },
   contentType:"application/json",
   async:false,
