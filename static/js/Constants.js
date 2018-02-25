@@ -7,6 +7,8 @@ var Constants = function(){
         return info;
 	};
 
+	obj.url="106.15.137.203";
+
    obj.genderObj = {
 		"1" : "男",
 		"2" : "女",
