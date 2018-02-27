@@ -22,6 +22,7 @@
            <button @click="a()">点击</button>
            <p>{{childval}}</p>
 
+       
             <tmpl :fff="hu" :tmpid='tmpid' @changedata='getchild'></tmpl>
        </div>
       
@@ -50,10 +51,11 @@ export default{
        }
 },
 
+
 created(){
    this.getsession();
     this.getlist();
-   
+  
 },
 methods:{
   a(){
