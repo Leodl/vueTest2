@@ -8,6 +8,7 @@ import tmpdetail from '@/components/tmp/tmpdetail.vue'
 import search from '@/components/search/search.vue'
 import personnalLook from '@/components/personnal/look.vue'
 import personnaleditor from '@/components/personnal/editor.vue'
+import vuextest from '@/components/vuextest/test.vue'
 
 
 
@@ -77,6 +78,11 @@ export default new Router({
       path: '/detail/:id',
       name: 'detail',
       component: detail
+    },
+    {
+      path:'/vuextest',
+      name:'vuextest',
+      component:vuextest
     }
    
 

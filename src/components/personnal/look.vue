@@ -18,7 +18,14 @@
                          <li>特长：{{userinfodata.specialskill}}</li>
                   </ul>
            </div>
+
+           <button @click="a()">点击</button>
+           <p>{{childval}}</p>
+
+       
+            <tmpl :fff="hu" :tmpid='tmpid' @changedata='getchild'></tmpl>
        </div>
+      
 </template>
 
 
@@ -26,22 +33,42 @@
 
 <script type="ecmascript-6">
 import axios from 'axios';
+import tmpl from "@/components/tmp/tmp.vue"
+import test from "@/assets/js/a.js"
 export default{
       name:'',
+       components:{
+            tmpl  
+        },
       data(){
             return {
               headpic:"",
               userid:"",
               userinfodata:"",
-
+              hu:"父组件传来的值",
+              tmpid:31,
+              childval:""
        }
 },
+
 
 created(){
    this.getsession();
     this.getlist();
+  
 },
 methods:{
+  a(){
+    alert(test.info)
+  },
+  count(){
+    this.tmpid=5;
+    console.log(this.tmpid)
+  },
+  getchild(val){
+   console.log(val)
+   this.childval=val;
+  },
      getlist(){
       var that = this;
         var url = "/zhitong/meritpay/roster/getDetail/"+this.userid+"";
@@ -58,7 +85,7 @@ methods:{
                    res.data.schoolage =Constants.schoolageObj[res.data.schoolage];
                    res.data.certificate =Constants.certificateObj[res.data.certificate]
 
-                  that.userinfodata =res.data;
+                   that.userinfodata =res.data;
 
             }
          })

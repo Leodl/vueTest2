@@ -1,6 +1,7 @@
 <template>
     <div class="search">
         <p class="tt">模板管理</p>
+        <span>{{fff}}</span>
         <ul>
             <li v-for="val in list">
                 <router-link v-bind="{to:'/tmp/'+val.templateId}"><h5>{{val.templateName}}</h5></router-link>
@@ -18,30 +19,35 @@
     })
 export default {
   name: 'tmp',
+   props:['fff','tmpid'],
+
   data(){
     return {
       list: "",
-        ownlist:''
+      ownlist:'',
+      id:4
     }
   },
+
 created(){
  this.getdata()
 },
 methods:{
    getdata(){
+    console.log(this.tmpid)
         var that = this;
-        var token ="eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MDg1NzY5NjIsInVzZXJJZCI6MTAwNSwidXNlclR5cGUiOjEsInVzZXJOYW1lIjoi572X5a-G5qynIn0.QcZzpG1xhaqRk3dHADS5acKSXZnG2VPntSipvc2mlgs"
         axios({
             method:'POST',
-            url:'http://106.15.137.203/meritpay/template/get',
-            data:{gartenId:4},
-            headers:{"User-Token":token},
+            url:'/zhitong/meritpay/template/get',
+            data:{gartenId:that.tmpid==undefined?that.id:that.tmpid},
+            headers:{"User-Token":Constants.getsession().token},
             contentType: 'application/json',
             dataType: "json",
         }).then(function(res){
             console.log(res.data)
             that.list = res.data.data;
                 })
+        this.$emit('changedata',"子组件传来的值")
     },
 }
 }

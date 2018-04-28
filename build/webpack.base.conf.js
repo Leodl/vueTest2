@@ -29,10 +29,13 @@ module.exports = {
 <<<<<<< HEAD
       'assets': resolve('assets'),
       'static': resolve('static'),
+<<<<<<< HEAD
 =======
       'assets':  resolve('assets'),
       'static': resolve('static')
 >>>>>>> de6506c831a9ca261b8a26427099abb214399467
+=======
+>>>>>>> 019b9e2ae89c139bab824a0e49e99cc797b2d1f0
       'components': path.resolve(__dirname, '../src/components'),
       jquery: "jquery"
     }
@@ -56,10 +59,7 @@ module.exports = {
       {
         test:/\.css$/,
         loader: "style-loader!css-loader",
-        include: [
-            /src/,
-          '/node_modules/mint-ui/lib/'
-        ] 
+        include: [resolve('src'),resolve('src/assets'), resolve('test'), resolve('node_modules/webpack-dev-server/client')] 
       },
       {
 
