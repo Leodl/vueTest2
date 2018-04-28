@@ -29,11 +29,25 @@ export default{
 
 created(){
      this.height()
+     this.list()
 },
 methods:{
       height(){
        var height = document.documentElement.clientHeight+"px;"
        this.style = "height:"+height+""
+      },
+      list(){
+        var url= "http://106.15.137.203:8012/book/booklist";
+          axios({
+            method:'GET',
+            url:url,
+            //data: data,
+            contentType: 'application/json',
+            dataType: 'json',
+        }).then(function(res){
+            console.log(res.data)
+
+                })
       },
       login(){
        var data = {
